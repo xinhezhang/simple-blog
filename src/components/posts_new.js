@@ -5,8 +5,10 @@ class PostsNew extends Component {
     // we need 'field' argument since we may need to handle different kinds of components
     renderTitleField(field) {
         return (
-            <div>
+            <div className="form-group">
+                <label>Title</label>
                 <input
+                    className="form-control"
                     type="text"         // text input
                     {...field.input}    // field.input -> objects (including event-handlers, props)
                 />

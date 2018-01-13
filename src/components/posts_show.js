@@ -6,6 +6,13 @@ import { fetchPost } from '../actions';
 
 class PostsShow extends Component {
     componentDidMount() {
+        // enable this if you do not want to re-fetch all posts when user go to main page
+        //
+        // if (!this.props.post) {
+        //     const { id } = this.props.match.params;     // support by 'react-router-dom'
+        //     this.props.fetchPost(id);
+        // }
+
         const { id } = this.props.match.params;     // support by 'react-router-dom'
         this.props.fetchPost(id);
     }

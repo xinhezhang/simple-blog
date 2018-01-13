@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
 export const FETCH_POST = 'FETCH_POST';
+export const DELETE_POST = 'DELETE_POST';
 
 // api doc: http://reduxblog.herokuapp.com/
 const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
@@ -36,5 +37,15 @@ export function fetchPost(id) {
     return {
         type: FETCH_POST,
         payload: request,
+    };
+}
+
+// action creator for delete specific post
+export function deletePost(id, callback) {
+    const request = axios.delete(`${ROOT_URL}/posts/${id}?key=${API_KEY}`);
+
+    return {
+        type: DELETE_POST,
+        payload: id,    // we do not need to return 'request' since we do not need the access of post anymore
     };
 }

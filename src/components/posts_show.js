@@ -10,8 +10,8 @@ class PostsShow extends Component {
     }
 
     render() {
-        const post = this.props.posts[this.props.match.params.id];  // the post we want to show
-
+        // this.props === ownProps
+        // this.props.post === this.props.posts[this.props.match.params.id]
         return (
             <div>
                 Posts Show
@@ -20,10 +20,11 @@ class PostsShow extends Component {
     }
 }
 
-function mapStateToProps({ posts }) {
+// mapStateToProps(application state, props going to this component)
+function mapStateToProps({ posts }, ownProps) {
     return {
-        posts,
+        post: posts[ownProps.match.params.id],
     };
 }
 
-export default connect(null, { fetchPost })(PostsShow);
+export default connect(mapStateToProps, { fetchPost })(PostsShow);

@@ -91,5 +91,5 @@ export default reduxForm({
     validate,
     form: 'PostsNewForm',
 })(
-    connect(null, { createPost })(PostsNew)
+    connect(null, { createPost })(PostsNew)     // this syntax is used to combining 'reduxForm' and 'connect'
 );

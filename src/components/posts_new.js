@@ -4,8 +4,10 @@ import { Field, reduxForm } from 'redux-form';  // 'reduxForm' is similar to 'co
 class PostsNew extends Component {
     // we need 'field' argument since we may need to handle different kinds of components
     renderField(field) {
+        const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`;
+
         return (
-            <div className="form-group has-danger">
+            <div className={className}>
                 <label>{field.label}</label>
                 <input
                     className="form-control"

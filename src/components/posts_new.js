@@ -29,8 +29,9 @@ class PostsNew extends Component {
     onSubmit(values) {
         // this === component
         //console.log(values);
-        this.props.history.push('/');   // navigate through callback instead of using 'Link'
-        this.props.createPost(values);
+        this.props.createPost(values, () => {
+            this.props.history.push('/');   // navigate through callback instead of using 'Link'
+        });
     }
 
     render() {

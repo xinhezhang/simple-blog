@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/index';
 
 class PostsIndex extends Component {
+    // fetching data after the component been rendered,
+    // since fetching data is async operation
+    componentDidMount() {
+        this.props.fetchPosts();
+    }
+
     render() {
         return (
             <div>

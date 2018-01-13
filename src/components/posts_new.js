@@ -12,7 +12,7 @@ class PostsNew extends Component {
                     type="text"         // text input
                     {...field.input}    // field.input -> objects (including event-handlers, props)
                 />
-                {field.meta.error}
+                {field.meta.touched ? field.meta.error : ''}
             </div>
         );
     }

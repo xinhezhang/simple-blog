@@ -12,13 +12,14 @@ class PostsNew extends Component {
                     type="text"         // text input
                     {...field.input}    // field.input -> objects (including event-handlers, props)
                 />
+                {field.meta.error}
             </div>
         );
     }
 
     render() {
         return (
-            <form action="">
+            <form>
                 <Field          // Field is responsible for event-handling and updating different piece of states
                     label="Title"
                     name="title"
@@ -34,6 +35,7 @@ class PostsNew extends Component {
                     name="content"
                     component={this.renderField}
                 />
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         );
     }
@@ -46,11 +48,8 @@ function validate(values) {
     const errors = {};
 
     // validate the inputs form 'values'
-    if (!values.title) {
-        errors.title = "Please enter a title!";
-    }
-    if (values.title.length < 3) {
-        errors.title = "Title must be at least 3 characters!"
+    if (!values.title || values.title.length < 3) {
+        errors.title = "Please enter a title that is at least 3 characters!";
     }
     if (!values.categories) {
         errors.categories = "Please enter a category!";

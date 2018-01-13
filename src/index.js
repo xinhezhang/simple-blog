@@ -9,6 +9,7 @@ import './index.css';
 import App from './components/App';
 import reducers from "./reducers";
 import PostsIndex from './components/posts_index';
+import PostsNew from './components/posts_new';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -19,6 +20,7 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Route path="/" component={PostsIndex} />
+                <Route path="/posts/new" component={PostsNew} />
             </div>
         </BrowserRouter>
     </Provider>,

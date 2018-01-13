@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPosts } from '../actions/index';
 
-export default class PostsIndex extends Component {
+class PostsIndex extends Component {
     render() {
         return (
             <div>
@@ -9,3 +11,15 @@ export default class PostsIndex extends Component {
         );
     }
 }
+
+// Use this way when you need to bind action creators or do something about it
+//
+// // import { bindActionCreators } from 'redux';
+// function mapDispatchToProps(dispatch) {
+//     return bindActionCreators({ fetchPosts }, dispatch);
+//
+// }
+// export default connect(null, mapDispatchToProps)(PostsIndex);
+
+// same as above, but with simple syntax
+export default connect(null, { fetchPosts })(PostsIndex);

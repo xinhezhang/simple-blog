@@ -6,7 +6,7 @@ class PostsIndex extends Component {
     // fetching data after the component been rendered,
     // since fetching data is async operation
     componentDidMount() {
-        this.props.fetchPosts();
+        this.props.fetchPosts();    // test using Postman
     }
 
     render() {

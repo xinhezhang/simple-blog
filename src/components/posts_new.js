@@ -17,9 +17,20 @@ class PostsNew extends Component {
         );
     }
 
+    onSubmit(values) {
+        // this === component
+        console.log(values);
+    }
+
     render() {
+        const { handleSubmit } = this.props;    // "handleSubmit" is a function passed through by redux-form
+
         return (
-            <form>
+            // redux-form only used to handle state and validation of the form,
+            // it will not handle save data or send data, etc.
+            // "handleSubmit" will validate the form
+            // "this.onSubmit" is a call-back function, we need to "bind(this)"
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
                 <Field          // Field is responsible for event-handling and updating different piece of states
                     label="Title"
                     name="title"
@@ -64,6 +75,7 @@ function validate(values) {
 }
 
 // form property MUST be unique, so redux-form could handle multiple forms in same page at the same time
+// add additional properties for this component
 export default reduxForm({
     validate,
     form: 'PostsNewForm',

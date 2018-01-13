@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';  // 'reduxForm' is similar to 'connect' in react-redux
+import { Link } from 'react-router-dom';
 
 class PostsNew extends Component {
     // we need 'field' argument since we may need to handle different kinds of components
@@ -53,6 +54,7 @@ class PostsNew extends Component {
                     component={this.renderField}
                 />
                 <button type="submit" className="btn btn-primary">Submit</button>
+                <Link to="/" className="btn btn-danger">Cancel</Link>
             </form>
         );
     }

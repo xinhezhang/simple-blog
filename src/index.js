@@ -20,15 +20,18 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 // ':id' is the wildcard
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
-        <BrowserRouter>
-            <div>
-                <Switch>
-                    <Route path="/posts/new" component={PostsNew} />
-                    <Route path="/posts/:id" component={PostsShow} />
-                    <Route path="/" component={PostsIndex} />
-                </Switch>
-            </div>
-        </BrowserRouter>
+        <div>
+            <App />
+            <BrowserRouter>
+                <div>
+                    <Switch>
+                        <Route path="/posts/new" component={PostsNew} />
+                        <Route path="/posts/:id" component={PostsShow} />
+                        <Route path="/" component={PostsIndex} />
+                    </Switch>
+                </div>
+            </BrowserRouter>
+        </div>
     </Provider>,
     document.getElementById('root')
 );

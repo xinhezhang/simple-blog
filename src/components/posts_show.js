@@ -17,6 +17,14 @@ class PostsShow extends Component {
         this.props.fetchPost(id);
     }
 
+    onDeleteClick() {
+        // BAD way, since post maybe unavailable during fetching data
+        //this.props.deletePost(this.props.post.id);          // BAD
+
+        const { id } = this.props.match.params;
+        this.props.deletePost(id);
+    }
+
     render() {
         // this.props === ownProps
         // this.props.post === this.props.posts[this.props.match.params.id]
@@ -31,6 +39,12 @@ class PostsShow extends Component {
         return (
             <div>
                 <Link to="/" className="btn btn-primary">Back</Link>
+                <button
+                    className="btn btn-danger pull-xs-right"
+                    onClick={this.onDeleteClick.bind(this)}
+                >
+                   Delete
+                </button>
                 <h3>{post.title}</h3>
                 <h6>Categories: {post.categories}</h6>
                 <p>{post.content}</p>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';    // like "anchor tag" in HTML
 import _ from 'lodash';
 
 import { fetchPosts } from '../actions/index';

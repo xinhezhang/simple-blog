@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';    // redux-form.com
+import { reducer as formReducer } from 'redux-form';    // document/examples: redux-form.com
 
 import PostsReducer from './reducer_posts';
 

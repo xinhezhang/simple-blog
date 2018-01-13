@@ -38,7 +38,7 @@
     to { transform: rotate(360deg); }
 }
 
-/* style for <Link/> in '../component/posts_new.js' */
+/* style for 'Cancel' <Link/> in '../component/posts_new.js' */
 form a {
     margin-left: 5px;
 }

@@ -7,7 +7,7 @@ export const DELETE_POST = 'DELETE_POST';
 
 // api doc: http://reduxblog.herokuapp.com/
 const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
-const API_KEY = 'simpleblogxinhezhang';     // as long as its unique
+const API_KEY = 'simpleblogxinhezhang';     // as long as its unique, at most 5 times per second
 
 // action creator for fetch all posts
 export function fetchPosts() {
@@ -44,6 +44,7 @@ export function fetchPost(id) {
 export function deletePost(id, callback) {
     const request = axios.delete(`${ROOT_URL}/posts/${id}?key=${API_KEY}`)
         .then(() => callback());
+    console.log(request);   // a Promise
 
     return {
         type: DELETE_POST,

@@ -15,6 +15,11 @@ class PostsShow extends Component {
 
         const { post } = this.props;
 
+        // check if post is undefined or not
+        if (!post) {
+            return <div>Loading...</div>;
+        }
+
         return (
             <div>
                 <h3>{post.title}</h3>

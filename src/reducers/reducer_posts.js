@@ -1,4 +1,4 @@
-import { FETCH_POSTS } from '../actions/index';
+import { FETCH_POSTS , FETCH_POST } from '../actions/index';
 import _ from 'lodash';
 
 export default function (state = {}, action) {
@@ -6,6 +6,11 @@ export default function (state = {}, action) {
         case FETCH_POSTS:
             //console.log(action.payload.data);   // [ post1, post2, ... ]
             return _.mapKeys(action.payload.data, 'id');    // posts['id']
+        case FETCH_POST:
+            const post = action.payload.data;
+            const newState = { ...state };
+            newState[post.id] = post;
+            return newState;
         default:
             return state;
     }

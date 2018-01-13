@@ -5,14 +5,16 @@ class PostsNew extends Component {
     // we need 'field' argument since we may need to handle different kinds of components
     renderField(field) {
         return (
-            <div className="form-group">
+            <div className="form-group has-danger">
                 <label>{field.label}</label>
                 <input
                     className="form-control"
                     type="text"         // text input
                     {...field.input}    // field.input -> objects (including event-handlers, props)
                 />
-                {field.meta.touched ? field.meta.error : ''}
+                <div className="text-help">
+                    {field.meta.touched ? field.meta.error : ''}
+                </div>
             </div>
         );
     }

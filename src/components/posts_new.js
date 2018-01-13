@@ -3,10 +3,10 @@ import { Field, reduxForm } from 'redux-form';  // 'reduxForm' is similar to 'co
 
 class PostsNew extends Component {
     // we need 'field' argument since we may need to handle different kinds of components
-    renderTitleField(field) {
+    renderField(field) {
         return (
             <div className="form-group">
-                <label>Title</label>
+                <label>{field.label}</label>
                 <input
                     className="form-control"
                     type="text"         // text input
@@ -20,8 +20,19 @@ class PostsNew extends Component {
         return (
             <form action="">
                 <Field          // Field is responsible for event-handling and updating different piece of states
+                    label="Title"
                     name="title"
-                    component={this.renderTitleField}   // this is a function reference, not a function call
+                    component={this.renderField}   // this is a function reference, not a function call
+                />
+                <Field
+                    label="Categories"
+                    name="categories"
+                    component={this.renderField}
+                />
+                <Field
+                    label="Post Content"
+                    name="content"
+                    component={this.renderField}
                 />
             </form>
         );

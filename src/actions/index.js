@@ -42,7 +42,8 @@ export function fetchPost(id) {
 
 // action creator for delete specific post
 export function deletePost(id, callback) {
-    const request = axios.delete(`${ROOT_URL}/posts/${id}?key=${API_KEY}`);
+    const request = axios.delete(`${ROOT_URL}/posts/${id}?key=${API_KEY}`)
+        .then(() => callback());
 
     return {
         type: DELETE_POST,

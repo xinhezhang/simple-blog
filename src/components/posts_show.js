@@ -22,7 +22,9 @@ class PostsShow extends Component {
         //this.props.deletePost(this.props.post.id);          // BAD
 
         const { id } = this.props.match.params;
-        this.props.deletePost(id);
+        this.props.deletePost(id, () => {
+            this.props.history.push('/');       // callback function
+        });
     }
 
     render() {

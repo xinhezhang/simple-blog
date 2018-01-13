@@ -10,3 +10,12 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
+
+// 'redux-form' work flow:
+//
+// 1. Identify different pieces of from state
+// 2. Make one 'Field' component per piece of state
+// 3. User changes a 'Field' input
+// 4. Redux form automatically handles changes
+// 5. User submits form
+// 6. We validate inputs and handle form submittal

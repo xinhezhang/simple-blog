@@ -6,7 +6,8 @@ class PostsIndex extends Component {
     // fetching data after the component been rendered,
     // since fetching data is async operation
     componentDidMount() {
-        this.props.fetchPosts();    // test using Postman
+        // test using Postman at 'http://reduxblog.herokuapp.com/api/posts?key=YOUR_API_KEY'
+        this.props.fetchPosts();
     }
 
     render() {
